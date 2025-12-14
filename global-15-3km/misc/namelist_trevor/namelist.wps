@@ -1,0 +1,19 @@
+&share
+  wrf_core = 'ARW',
+  max_dom = 1,
+  start_date = 'STARTTIME',
+  end_date = 'ENDTIME',
+  interval_seconds = 3600,
+  io_form_geogrid = 2,
+  opt_output_from_geogrid_path = './',
+/
+
+&ungrib
+  out_format = 'WPS',
+  prefix = 'INIT_SOURCE',
+  pmin = 0
+/
+
+&metgrid
+/
+

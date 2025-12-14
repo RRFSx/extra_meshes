@@ -1,0 +1,56 @@
+<streams>
+<immutable_stream name="input"
+                  type="input"
+                  filename_template="MODELNAME.init.nc"
+                  input_interval="initial_only" />
+
+<immutable_stream name="ugwp_oro_data_in"
+                  type="input"
+                  filename_template="MODELNAME.ugwp_oro_data.nc"
+                  input_interval="initial_only" />
+
+<immutable_stream name="restart"
+                  type="input;output"
+                  filename_template="MODELNAME.restart.$Y-$M-$D_$h.$m.$s.nc"
+                  io_type="netcdf4"
+                  input_interval="initial_only"
+                  clobber_mode="replace_files"
+                  output_interval="61:00:00" />
+
+<stream name="output"
+                  type="output"
+                  filename_template="MODELNAME.history.$Y-$M-$D_$h.$m.$s.nc"
+                  io_type="netcdf4"
+                  clobber_mode="replace_files"
+                  output_interval="FCST_INTERVAL" >
+
+    <file name="stream_list.atmosphere.output"/>
+</stream>
+
+<stream name="diagnostics"
+                  type="output"
+                  filename_template="MODELNAME.diag.$Y-$M-$D_$h.$m.$s.nc"
+                  io_type="netcdf4"
+                  clobber_mode="replace_files"
+                  output_interval="FCST_INTERVAL" >
+
+    <file name="stream_list.atmosphere.diagnostics"/>
+</stream>
+
+<stream name="surface"
+                  type="input"
+                  filename_template="MODELNAME.sfc_update.nc"
+                  filename_interval="none"
+                  input_interval="none" >
+
+    <file name="stream_list.atmosphere.surface"/>
+</stream>
+
+<immutable_stream name="iau"
+                  type="input"
+                  filename_template="MODELNAME.AmB.$Y-$M-$D_$h.$m.$s.nc"
+                  filename_interval="none"
+                  packages="iau"
+                  input_interval="initial_only" />
+
+</streams>

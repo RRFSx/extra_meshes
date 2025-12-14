@@ -1,0 +1,22 @@
+&config
+    grid_file_input_grid = "MODELNAME.init.nc"
+    hist_file_input_grid = "HISTFILE"
+    diag_file_input_grid = "DIAGFILE"
+    file_target_grid     = "FIX_DIR/geo_em.d01.nc"
+    output_file          = "MPAS-A_out.FCSTTIME_conus.nc"
+    block_decomp_file    = "BLOCKFILE"
+    target_grid_type     = 'lambert'
+    interp_diag          = .true.
+    interp_hist          = .true.
+    wrf_mod_vars         = .true.
+    esmf_log=.true.
+    nx = 1800
+    ny = 1060
+    dx = 3000.0
+    dy = 3000.0
+    ref_lat = 38.5
+    ref_lon = -97.5
+    truelat1 = 38.5
+    truelat2 = 38.5
+    stand_lon = -97.5
+/

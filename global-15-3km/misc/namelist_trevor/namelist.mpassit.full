@@ -1,0 +1,19 @@
+&config
+    grid_file_input_grid = "MODELNAME.init.nc"
+    hist_file_input_grid = "HISTFILE"
+    diag_file_input_grid = "DIAGFILE"
+    file_target_grid     = "FIX_DIR/geo_em.d01.nc"
+    output_file          = "MPAS-A_out.FCSTTIME_full.nc"
+    block_decomp_file    = "BLOCKFILE"
+    target_grid_type     = 'lat-lon'
+    interp_diag          = .true.
+    interp_hist          = .true.
+    wrf_mod_vars         = .true.
+    esmf_log=.true.
+    nx = 2667
+    ny = 1334
+    dx = 0.135
+    dy = 0.135
+    ref_lat = 0.0
+    ref_lon = 180.0
+/

@@ -1,0 +1,42 @@
+&nhyd_model
+    config_init_case = 7 
+    config_start_time = '2010-10-23_00:00:00'
+    config_stop_time = '2010-10-23_00:00:00'
+    config_theta_adv_order = 3 
+    config_coef_3rd_order = 0.25
+    config_interface_projection = 'linear_interpolation'
+/
+&dimensions
+    config_nvertlevels = 1 
+    config_nsoillevels = 1 
+    config_nfglevels = 1 
+    config_nfgsoillevels = 1 
+/
+&data_sources
+    config_geog_data_path = '/scratch2/BMC/wrfruc/talcott/mpas/fire/static/geog/'
+    config_landuse_data = 'MODIFIED_IGBP_MODIS_NOAH_15s'
+    config_topo_data = 'GMTED2010'
+    config_vegfrac_data = 'MODIS'
+    config_albedo_data = 'MODIS'
+    config_maxsnowalbedo_data = 'MODIS'
+    config_supersample_factor = 3 
+    config_30s_supersample_factor = 1 
+    config_soilcat_data = 'BNU'
+/
+&preproc_stages
+    config_static_interp = false
+    config_native_gwd_static = false
+    config_native_gwd_gsl_static = true
+    config_vertical_grid = false
+    config_met_interp = false
+    config_input_sst = false
+    config_frac_seaice = false
+/
+&io
+    config_pio_num_iotasks = 0 
+    config_pio_stride = 1 
+/
+&decomposition
+    config_block_decomp_file_prefix = 'global_15_3km.graph.info.part.'
+/
+

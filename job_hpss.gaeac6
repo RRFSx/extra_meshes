@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH --ntasks=1
+#SBATCH --time=6:30:00
+#SBATCH --account=arfs-gsl
+#SBATCH --partition=dtn_f5_f6
+#SBATCH --job-name=extra_meshes
+#SBATCH -e output.hpss
+#SBATCH -o output.hpss
+
+module use /usw/hpss/modulefiles
+module load hsi
+
+set -x
+dst="/ESRL/BMC/wrfruc/5year/guoqing/extra_meshes"
+timestamp=$(date -u +"%Y%m%d_%H%M%S")
+startime=$timestamp
+
+tmpdir="_tmp_tar_"
+tarfile=meshes_${timestamp}z.tar
+
+mkdir -p $tmpdir
+tar -cvf $tmpdir/$tarfile --exclude="${tmpdir}" --exclude="output.hpss" *
+hsi put $tmpdir/$tarfile : $dst/$tarfile
+
+set +x
+endtime=$(date -u +"%Y%m%d_%H%M%S")
+echo "start at $startime"
+echo "end at $endtime"
