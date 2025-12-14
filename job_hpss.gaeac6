@@ -4,6 +4,7 @@
 #SBATCH --account=arfs-gsl
 #SBATCH --partition=dtn_f5_f6
 #SBATCH --job-name=extra_meshes
+#SBATCH --chdir=.
 #SBATCH -e output.hpss
 #SBATCH -o output.hpss
 
@@ -18,8 +19,11 @@ startime=$timestamp
 tmpdir="_tmp_tar_"
 tarfile=meshes_${timestamp}z.tar
 
+rm -f output.hpass
+rm -rf "${tmpdir}"
+
 mkdir -p $tmpdir
-tar -cvf $tmpdir/$tarfile --exclude="${tmpdir}" --exclude="output.hpss" *
+tar -cvf $tmpdir/$tarfile --exclude="${tmpdir}" --exclude="output.hpss" --exclude=".git" *
 hsi put $tmpdir/$tarfile : $dst/$tarfile
 
 set +x
