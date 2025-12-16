@@ -19,7 +19,7 @@ startime=$timestamp
 tmpdir="_tmp_tar_"
 tarfile=meshes_${timestamp}z.tar
 
-rm -f output.hpass
+rm -f output.hpss
 rm -rf "${tmpdir}"
 
 mkdir -p $tmpdir
